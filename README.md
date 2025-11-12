@@ -1,8 +1,8 @@
-# Gifly
+# Giftly
 **Smart gavevelger for alle anledninger**
 
 ## 🧩 Om prosjektet  
-**GiftMatch** er et webprosjekt som hjelper brukere å finne den perfekte gaven basert på alder, kjønn og interesser.  
+**Giftly** er et webprosjekt som hjelper brukere å finne den perfekte gaven basert på alder, kjønn og interesser.  
 Du kan velge en kategori (f.eks. barn, ungdom, voksen) eller skrive en fritekstbeskrivelse som:  
 
 > "Jente, 8 år, liker rosa, hester og videospill"  
