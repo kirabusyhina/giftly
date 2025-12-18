@@ -1,0 +1,77 @@
+.page-title {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 18px;
+    color: #d9d9d9;
+    letter-spacing: 0.5px;
+}
+
+.gifts-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 60px 80px;
+    flex-wrap: wrap;
+}
+
+.gift-card {
+    width: 220px;
+    text-align: center;
+}
+
+.gift-image {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.gift-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 22px;
+    text-decoration: none;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 4px 8px;
+    border-radius: 50%;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.wishlist-btn:hover {
+    color: #c40000;
+    transform: scale(1.1);
+}
+
+.gift-title {
+    margin-top: 12px;
+    background-color: #f2f2f2;
+    color: #000;
+    padding: 6px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.gift-price {
+    margin-top: 8px;
+    background-color: #6b1e1e;
+    color: #ffffff;
+    padding: 6px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .gifts-grid {
+        padding: 20px;
+        gap: 30px;
+    }
+}

@@ -1,0 +1,196 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background-color: #000000;
+    color: #ffffff;
+     font-family: 'Kaisei HarunoUmi', serif;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.top-header {
+    background: linear-gradient(#111, #000);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 36px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+.nav-bar {
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #c40000;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-icons img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+}
+
+/* TEXT */
+.hero-text {
+    width: 55%;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* IMAGE */
+.hero-image {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+}
+
+/* ===== LOGIN MODAL ===== */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #ffffff;
+    color: #000000;
+    padding: 30px;
+    border-radius: 10px;
+    width: 320px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 8px;
+    background-color: #3e0909;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    opacity: 0.9;
+}
+
+.modal-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+#close-login {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 380px;
+    background-color: #111111;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: none;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3e0909;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.auth-box p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
