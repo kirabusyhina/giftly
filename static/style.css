@@ -194,3 +194,84 @@ body {
     font-size: 14px;
 }
 
+/* ===== GIFT CARDS ===== */
+
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.gift-card {
+    background-color: #111;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.gift-image {
+    position: relative;
+}
+
+.gift-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.wishlist-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* ===== WISHLIST TOAST ===== */
+
+#wishlist-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #093E22;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 999;
+}
+
+#wishlist-toast.show {
+    opacity: 1;
+}
+
+/* ===== WISHLIST PANEL ===== */
+
+.wishlist-panel {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    transition: right 0.3s;
+    z-index: 1000;
+}
+
+.wishlist-panel.open {
+    right: 0;
+}
+
+.wishlist-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.wishlist-panel li {
+    margin-bottom: 10px;
+}
