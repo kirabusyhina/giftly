@@ -195,35 +195,51 @@ body {
 }
 
 /* ===== GIFT CARDS ===== */
-
 .gifts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 40px;
+    grid-template-columns: repeat(3, 1fr); /* 3 в ряд */
+    gap: 50px;
+    max-width: 1200px;
+    margin: 60px auto;
 }
 
 .gift-card {
     background-color: #111;
-    padding: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
+    padding: 20px;
+    border-radius: 15px;
     text-align: center;
     color: #fff;
 }
 
 .gift-image {
     position: relative;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    height: 220px;
 }
 
 .gift-image img {
-    width: 100%;
+    max-width: 100%;
     border-radius: 10px;
+    max-height: 100%;
+    object-fit: contain;
 }
+
+.gift-price {
+    background-color: #7a1f1f;
+    border-radius: 10px;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
 
 .wishlist-heart {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 12px;
     cursor: pointer;
     font-size: 20px;
 }
@@ -234,7 +250,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #093E22;
+    background-color: #b84dff;
     color: #ffffff;
     padding: 12px 20px;
     border-radius: 8px;
@@ -275,3 +291,4 @@ body {
 .wishlist-panel li {
     margin-bottom: 10px;
 }
+

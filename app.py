@@ -51,19 +51,39 @@ def add_gift():
     return render_template("add_gift.html")
 
 
-# 🔹 СТРАНИЦА FOR HIM (ВАЖНО!)
 @app.route("/category/him")
 def for_him():
     conn = connect_db()
-    cur = conn.cursor(dictionary=True)
 
+    # ЕСЛИ БАЗА НЕДОСТУПНА
+    if conn is None:
+        gifts = [
+            {
+                "title": "Wireless Headphones",
+                "price": 99.99,
+                "image": "images/headphones_for_him.avif"
+            },
+            {
+                "title": "Minimal Leather Wallet",
+                "price": 49.99,
+                "image": "images/wallet_for_him.webp"
+            },
+            {
+                "title": "Smart Water Bottle",
+                "price": 34.99,
+                "image": "images/bottle_for_him.webp"
+            }
+        ]
+        return render_template("category_him/him.html", gifts=gifts)
+
+    # ЕСЛИ БАЗА ДОСТУПНА
+    cur = conn.cursor(dictionary=True)
     cur.execute("""
-        SELECT id, title, price, image
+        SELECT title, price, image
         FROM catalog_gifts
         WHERE category = 'him'
         ORDER BY is_popular DESC, created_at DESC
     """)
-
     gifts = cur.fetchall()
     conn.close()
 

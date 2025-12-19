@@ -1,62 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Him | Giftly</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='him.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='wishlist.js') }}"></script>
 </head>
+
 <body>
-    <!-- HEADER -->
-<header class="top-header">
-    <div class="logo">Giftly</div>
-</header>
 
-<nav class="nav-bar">
-    <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/category/him" class="active">For him</a></li>
-        <li><a href="/category/her">For her</a></li>
-        <li><a href="/generate">Generate gift</a></li>
-    </ul>
+    <header class="top-header">
+        <div class="logo">Giftly</div>
+    </header>
 
-    <div class="nav-icons">
-        <a href="/profile">
-            <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="User">
-        </a>
-         <a href="#" onclick="openWishlist()">
-            <img src="{{ url_for('static', filename='images/wishlist.png') }}" alt="Wishlist">
-        </a>
-    </div>
-</nav>
+    <nav class="nav-bar">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/category/him">For him</a></li>
+            <li><a href="/category/her">For her</a></li>
+            <li><a href="/generate">Generate gift</a></li>
+        </ul>
 
-<!-- TITLE -->
-<section class="page-title">
-    <p>Thoughtful and practical gift ideas selected for him</p>
-</section>
-
-<!-- GIFTS -->
-<section class="gifts-grid">
-    {% for gift in gifts %}
-    <div class="gift-card">
-
-        <!-- IMAGE -->
-        <div class="gift-image">
-            <img src="{{ url_for('static', filename=gift.image) }}" alt="{{ gift.title }}">
-
-              <span
-                class="wishlist-heart"
-                onclick="addToWishlist('{{ gift.title }}', '{{ gift.price }}')">
-                ❤️
-            </span>
+        <div class="nav-icons">
+            <a href="/login">
+                <img src="{{ url_for('static', filename='images/user.png') }}" alt="User">
+            </a>
+            <a href="#" onclick="openWishlist()">
+                <img src="{{ url_for('static', filename='images/wishlist.png') }}" alt="Wishlist">
+            </a>
         </div>
+    </nav>
 
- <div class="gift-info">
-            <h4>{{ gift.title }}</h4>
-            <p class="gift-price">${{ gift.price }}</p>        
+
+    <!-- TITLE -->
+    <section class="page-title">
+        <p>Thoughtful and practical gift ideas selected for him</p>
+    </section>
+
+    <!-- GIFTS -->
+    <section class="gifts-grid">
+        {% for gift in gifts %}
+
+        <div class="gift-card">
+
+            <div class="gift-image">
+                <img src="{{ url_for('static', filename=gift.image) }}" alt="{{ gift.title }}">
+                <span class="wishlist-heart" onclick="addToWishlist('{{ gift.title }}', '{{ gift.price }}')">
+                    ❤️
+                </span>
+            </div>
+
+            <div class="gift-info">
+                <h4>{{ gift.title }}</h4>
+                <p class="gift-price">${{ gift.price }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+
+    <!-- WISHLIST TOAST -->
+    <div id="wishlist-toast">Added to wishlist ❤️</div>
+
+    <!-- WISHLIST PANEL -->
+    <div id="wishlist-panel" class="wishlist-panel">
+        <h3>Your Wishlist</h3>
+        <ul id="wishlist-items"></ul>
+        <button onclick="closeWishlist()">Close</button>
     </div>
-    {% endfor %}
-</section>
 </body>
+
 </html>
