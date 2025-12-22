@@ -139,6 +139,46 @@ def login():
 
 
 
+@app.route("/category/her")
+def for_her():
+    conn = connect_db()
+
+    # ЕСЛИ БАЗА НЕДОСТУПНА (fallback)
+    if conn is None:
+        gifts = [
+            {
+                "title": "Luxury Candle Set",
+                "price": 39.99,
+                "image": "images/candle_for_her.jpg"
+            },
+            {
+                "title": "Skincare Gift Box",
+                "price": 59.99,
+                "image": "images/skincare_for_her.webp"
+            },
+            {
+                "title": "Handmade Ceramic Mug",
+                "price": 29.99,
+                "image": "images/mug_for_her.webp"
+            }
+        ]
+        return render_template("category_her/her.html", gifts=gifts)
+
+    # ЕСЛИ БАЗА ДОСТУПНА
+    cur = conn.cursor(dictionary=True)
+    cur.execute("""
+        SELECT title, price, image
+        FROM catalog_gifts
+        WHERE category = 'her'
+        ORDER BY is_popular DESC, created_at DESC
+    """)
+    gifts = cur.fetchall()
+    conn.close()
+
+    return render_template("category_her/her.html", gifts=gifts)
+
+
+
 # ❗ ЗАПУСК СЕРВЕРА — ТОЛЬКО ОДИН РАЗ И В КОНЦЕ
 if __name__ == "__main__":
     app.run(debug=True)
