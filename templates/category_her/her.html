@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Her | Giftly</title>
-     <link rel="stylesheet" href="{{ url_for('static', filename='him.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='him.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
     <script src="{{ url_for('static', filename='wishlist.js') }}"></script>
 </head>
+
 <body>
     <header class="top-header">
         <div class="logo">Giftly</div>
@@ -66,8 +68,14 @@
     <!-- WISHLIST PANEL -->
     <div id="wishlist-panel" class="wishlist-panel">
         <h3>Your Wishlist</h3>
-        <ul id="wishlist-items"></ul>
-        <button onclick="closeWishlist()">Close</button>
-    </div> 
+
+        <ul id="wishlist-items" class="wishlist-items"></ul>
+
+        <div class="wishlist-actions">
+            <button onclick="clearWishlist()">Clear</button>
+            <button onclick="closeWishlist()">Close</button>
+        </div>
+    </div>
 </body>
+
 </html>

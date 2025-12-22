@@ -22,6 +22,7 @@ function showToast() {
 function openWishlist() {
     const panel = document.getElementById("wishlist-panel");
     const list = document.getElementById("wishlist-items");
+
     list.innerHTML = "";
 
     const wishlist = getWishlist();
@@ -31,9 +32,15 @@ function openWishlist() {
         list.appendChild(li);
     });
 
-    panel.classList.add("open");
+    panel.style.display = "block";
 }
 
 function closeWishlist() {
-    document.getElementById("wishlist-panel").classList.remove("open");
+    document.getElementById("wishlist-panel").style.display = "none";
 }
+
+function clearWishlist() {
+    localStorage.removeItem("wishlist");
+    document.getElementById("wishlist-items").innerHTML = "";
+}
+
