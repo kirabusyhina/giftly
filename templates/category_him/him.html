@@ -29,8 +29,9 @@
             <a href="/login">
                 <img src="{{ url_for('static', filename='images/user.png') }}" alt="User">
             </a>
-            <a href="#" onclick="openWishlist()">
+            <a href="#" onclick="openWishlist()"  class="wishlist-icon">
                 <img src="{{ url_for('static', filename='images/wishlist.png') }}" alt="Wishlist">
+                <span id="wishlist-count">0</span>
             </a>
         </div>
     </nav>
@@ -72,8 +73,11 @@
 
         <ul id="wishlist-items" class="wishlist-items"></ul>
 
+        <p id="wishlist-total">Total: $0.00</p>
+
         <div class="wishlist-actions">
             <button onclick="clearWishlist()">Clear</button>
+            <button onclick="moveWishlistToCart()">Order</button>
             <button onclick="closeWishlist()">Close</button>
         </div>
     </div>
