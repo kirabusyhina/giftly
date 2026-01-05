@@ -6,7 +6,8 @@
     <title>Giftly</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
-    <script src="{{ url_for('static', filename='wishlist.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wishlist.js') }}"></script>
 </head>
 
 <body>
@@ -29,8 +30,13 @@
             <a href="#" id="open-login">
                 <img src="{{ url_for('static', filename='images/user.png') }}" alt="Login">
             </a>
-            <a href="#" onclick="openWishlist()">
+            <a href="#" onclick="openWishlist()" class="wishlist-icon">
                 <img src="{{ url_for('static', filename='images/wishlist.png') }}" alt="Wishlist">
+                <span id="wishlist-count">0</span>
+            </a>
+            <a href="#" onclick="openCart()" class="cart-icon">
+                <img src="{{ url_for('static', filename='images/cart.png') }}" alt="Cart">
+                <span id="cart-count">0</span>
             </a>
 
         </div>
@@ -93,21 +99,40 @@
             }
         };
     </script>
+    <!-- CART TOAST -->
+    <div id="cart-toast">Added to cart 🛒</div>
 
- <!-- WISHLIST TOAST -->
-<div id="wishlist-toast">Added to wishlist ❤️</div>
+    <!-- CART PANEL -->
+    <div id="cart-panel" class="cart-panel">
+        <h3>Your Cart</h3>
 
-<!-- WISHLIST PANEL -->
-<div id="wishlist-panel" class="wishlist-panel">
-    <h3>Your Wishlist</h3>
+        <ul id="cart-items" class="cart-items"></ul>
 
-    <ul id="wishlist-items" class="wishlist-items"></ul>
+        <p id="cart-total">Total: $0.00</p>
 
-    <div class="wishlist-actions">
-        <button onclick="clearWishlist()">Clear</button>
-        <button onclick="closeWishlist()">Close</button>
+        <div class="cart-actions">
+            <button onclick="clearCart()">Clear</button>
+            <button onclick="closeCart()">Close</button>
+        </div>
     </div>
-</div>
+
+    <!-- WISHLIST TOAST -->
+    <div id="wishlist-toast">Added to wishlist ❤️</div>
+
+    <!-- WISHLIST PANEL -->
+    <div id="wishlist-panel" class="wishlist-panel">
+        <h3>Your Wishlist</h3>
+
+        <ul id="wishlist-items" class="wishlist-items"></ul>
+
+        <p id="wishlist-total">Total: $0.00</p>
+
+        <div class="wishlist-actions">
+            <button onclick="clearWishlist()">Clear</button>
+            <button onclick="moveWishlistToCart()">Order</button>
+            <button onclick="closeWishlist()">Close</button>
+        </div>
+    </div>
 
 </body>
 

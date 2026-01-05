@@ -89,20 +89,28 @@ function moveWishlistToCart() {
     const wishlist = getWishlist();
 
     if (wishlist.length === 0) {
-        alert("Wishlist is empty");
+        showToast("Wishlist is empty");
         return;
     }
 
-    saveCart(wishlist);
-    localStorage.removeItem("wishlist");
+    // Save to cart (same key cart.js uses)
+    localStorage.setItem("cart", JSON.stringify(wishlist));
 
+    // Clear wishlist
+    localStorage.removeItem("wishlist");
     document.getElementById("wishlist-items").innerHTML = "";
     document.getElementById("wishlist-total").textContent = "Total: $0.00";
     updateWishlistCount();
 
-    alert("Items moved to cart 🛒");
-}
+    // IMPORTANT: update cart badge immediately
+    if (typeof updateCartCount === "function") {
+        updateCartCount();
+    }
 
-document.addEventListener("DOMContentLoaded", () => {
-    updateWishlistCount();
-});
+    // Optional: show cart toast instead of browser alert
+    if (typeof showCartToast === "function") {
+        showCartToast("Items moved to cart 🛒");
+    } else {
+        alert("Items moved to cart 🛒");
+    }
+}
