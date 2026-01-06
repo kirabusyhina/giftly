@@ -79,11 +79,18 @@ function updateTotalPrice() {
 function updateWishlistCount() {
     const count = getWishlist().length;
     const badge = document.getElementById("wishlist-count");
+    if (!badge) return;
 
-    if (badge) {
-        badge.textContent = count;
+    if (count <= 0) {
+        badge.style.display = "none";
+        badge.textContent = "";
+        return;
     }
+
+    badge.style.display = "inline-block";
+    badge.textContent = count;
 }
+
 
 function moveWishlistToCart() {
     const wishlist = getWishlist();

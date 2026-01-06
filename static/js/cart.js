@@ -9,15 +9,18 @@ function saveCart(items) {
 function updateCartCount() {
     const count = getCart().length;
     const badge = document.getElementById("cart-count");
-    if (badge) badge.textContent = count;
+    if (!badge) return;
+
+    if (count <= 0) {
+        badge.style.display = "none";
+        badge.textContent = "";
+        return;
+    }
+
+    badge.style.display = "inline-block";
+    badge.textContent = count;
 }
 
-function updateCartTotal() {
-    const cart = getCart();
-    const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
-    const el = document.getElementById("cart-total");
-    if (el) el.textContent = `Total: $${total.toFixed(2)}`;
-}
 
 function openCart() {
     updateCartCount();

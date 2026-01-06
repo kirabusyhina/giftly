@@ -335,6 +335,11 @@ body {
     border-radius: 50%;
 }
 
+#wishlist-count {
+    display: none;
+}
+
+
 /* ===== CART ICON BADGE ===== */
 .cart-icon {
     position: relative;
@@ -417,4 +422,8 @@ body {
 
 .cart-actions button:hover {
     background: #b32626;
+}
+
+#cart-count {
+    display: none;
 }
