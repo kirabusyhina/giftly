@@ -427,3 +427,7 @@ body {
 #cart-count {
     display: none;
 }
+
+#cart-count, #wishlist-count {
+    pointer-events: none;
+}

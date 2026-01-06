@@ -34,10 +34,11 @@
                 <img src="{{ url_for('static', filename='images/wishlist.png') }}" alt="Wishlist">
                 <span id="wishlist-count">0</span>
             </a>
-            <a href="#" onclick="openCart()" class="cart-icon">
+            <a href="#" onclick="openCart(); return false;" class="cart-icon">
                 <img src="{{ url_for('static', filename='images/cart.png') }}" alt="Cart">
                 <span id="cart-count">0</span>
             </a>
+
 
         </div>
     </nav>
@@ -112,9 +113,11 @@
 
         <div class="cart-actions">
             <button onclick="clearCart()">Clear</button>
+            <button onclick="placeOrder()">Order</button>
             <button onclick="closeCart()">Close</button>
         </div>
     </div>
+
 
     <!-- WISHLIST TOAST -->
     <div id="wishlist-toast">Added to wishlist ❤️</div>
