@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Gift | Giftly</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wishlist.js') }}"></script>
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="logo">Giftly</div>
+    </header>
+
+    <nav class="nav-bar">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/category/him">For him</a></li>
+            <li><a href="/category/her">For her</a></li>
+            <li><a href="/generate">Generate gift</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="/login">
+                <img src="{{ url_for('static', filename='images/user.png') }}" alt="User">
+            </a>
+
+            <a href="#" onclick="openWishlist(); return false;" class="wishlist-icon">
+                <img src="{{ url_for('static', filename='images/wishlist.png') }}" alt="Wishlist">
+                <span id="wishlist-count">0</span>
+            </a>
+
+            <a href="#" onclick="openCart(); return false;" class="cart-icon">
+                <img src="{{ url_for('static', filename='images/cart.png') }}" alt="Cart">
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="page-title">
+        <p>Describe the person, set a budget, and Giftly will suggest the best matches.</p>
+    </section>
+
+    <!-- GENERATOR FORM -->
+    <section class="generator-section">
+        <form method="POST" class="generator-form">
+
+            <div class="generator-row">
+                <label>Category</label>
+                <select name="category">
+                    <option value="any" {% if form_data.category=='any' %}selected{% endif %}>Any</option>
+                    <option value="him" {% if form_data.category=='him' %}selected{% endif %}>For him</option>
+                    <option value="her" {% if form_data.category=='her' %}selected{% endif %}>For her</option>
+                </select>
+            </div>
+
+            <div class="generator-row">
+                <label>Budget (USD)</label>
+                <input type="text" name="budget" placeholder="e.g. 50" value="{{ form_data.budget }}">
+            </div>
+
+            <div class="generator-row">
+                <label>Occasion</label>
+                <input type="text" name="occasion" placeholder="e.g. birthday, Christmas"
+                    value="{{ form_data.occasion }}">
+            </div>
+
+            <div class="generator-row">
+                <label>Interests</label>
+                <input type="text" name="interests" placeholder="e.g. tech, sports, skincare"
+                    value="{{ form_data.interests }}">
+            </div>
+
+            <div class="generator-actions">
+                <button type="submit" class="generator-btn">Generate</button>
+            </div>
+
+        </form>
+    </section>
+
+    <!-- RESULTS -->
+    {% if gifts and gifts|length > 0 %}
+    <section class="gifts-grid">
+        {% for gift in gifts %}
+        <div class="gift-card">
+            <div class="gift-image">
+                <img src="{{ url_for('static', filename=gift.image) }}" alt="{{ gift.title }}">
+
+                <span class="wishlist-heart" onclick="addToWishlist('{{ gift.title }}', '{{ gift.price }}')">❤️</span>
+            </div>
+
+            <div class="gift-info">
+                <h4>{{ gift.title }}</h4>
+                <div class="gift-actions">
+                    <span class="gift-price">${{ gift.price }}</span>
+                    <button class="add-cart-btn" onclick="addToCart('{{ gift.title }}', '{{ gift.price }}')">
+                        Add to cart
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    <!-- WISHLIST TOAST + PANEL -->
+    <div id="wishlist-toast">Added to wishlist ❤️</div>
+    <div id="wishlist-panel" class="wishlist-panel">
+        <h3>Your Wishlist</h3>
+
+        <ul id="wishlist-items" class="wishlist-items"></ul>
+        <p id="wishlist-total">Total: $0.00</p>
+
+        <div class="wishlist-actions">
+            <button onclick="clearWishlist()">Clear</button>
+            <button onclick="moveWishlistToCart()">Order</button>
+            <button onclick="closeWishlist()">Close</button>
+        </div>
+    </div>
+
+    <!-- CART TOAST + PANEL -->
+    <div id="cart-toast">Added to cart 🛒</div>
+    <div id="cart-panel" class="cart-panel">
+        <h3>Your Cart</h3>
+
+        <ul id="cart-items" class="cart-items"></ul>
+        <p id="cart-total">Total: $0.00</p>
+
+        <div class="cart-actions">
+            <button onclick="clearCart()">Clear</button>
+            <button onclick="placeOrder()">Order</button>
+            <button onclick="closeCart()">Close</button>
+        </div>
+    </div>
+</body>
+
+</html>

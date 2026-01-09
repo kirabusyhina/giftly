@@ -431,3 +431,96 @@ body {
 #cart-count, #wishlist-count {
     pointer-events: none;
 }
+
+/* ===== GENERATE GIFT ===== */
+.page-title {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 18px;
+    color: #d9d9d9;
+    letter-spacing: 0.5px;
+}
+.generator-section {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+}
+
+.generator-form {
+    background: #111;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.generator-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.generator-row label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.generator-row input,
+.generator-row select,
+.generator-row textarea {
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #000;
+    color: #fff;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+.generator-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ff4dac;
+    color: white;
+    font-size: 14px;
+}
+
+.generator-btn:hover {
+    opacity: 0.9;
+}
+
+.gift-actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;     /* <-- выравнивание по центру по высоте */
+    gap:12px;
+    margin-top:12px;
+}
+
+.gift-actions .gift-price,
+.gift-actions .add-cart-btn{
+    width:150px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#7a1f1f;
+    color:#fff;
+    border-radius:10px;
+
+    padding:0;
+    margin:0;               /* <-- убираем возможные дефолтные отступы */
+    line-height:44px;       /* <-- одинаковая линия */
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+.gift-actions .add-cart-btn{
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    appearance:none;        /* <-- убирает системные стили кнопки */
+    -webkit-appearance:none;
+}
+
