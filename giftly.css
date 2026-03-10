@@ -1,0 +1,90 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Kaisei HarunoUmi", serif;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.top-header {
+    background: linear-gradient(#111, #000);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 36px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+.nav-bar {
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #BC1721;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-icons img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+}
+
+/* TEXT */
+.hero-text {
+    width: 55%;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* IMAGE */
+.hero-image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}

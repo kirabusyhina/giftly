@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giftly</title>
+    <link rel="stylesheet" href="giftly.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Kaisei+HarunoUmi">
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <header class="top-header">
+        <div class="logo">Giftly</div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/category/him">For him</a></li>
+            <li><a href="/category/her">For her</a></li>
+            <li><a href="/generate">Generate gift</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <a href="/profile">
+                <img src="{{ url_for('static', filename='images/user-icon.png') }}" alt="User">
+            </a>
+            <a href="/profile#wishlist">
+                <img src="{{ url_for('static', filename='images/cart-icon.png') }}" alt="Wishlist">
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="hero-section">
+        <div class="hero-text">
+            <p>
+                Giftly is a simple and intuitive gift-finding service designed to help
+                users choose the perfect present for any occasion. The platform offers
+                curated categories for her and for him, along with a smart gift
+                generator that tailors suggestions based on interests, budget, and
+                personal preferences. Users can browse, search, save favorites, and
+                explore thoughtful ideas with ease.
+            </p>
+        </div>
+
+        <div class="hero-image">
+            <img src="#" alt="Gift box">
+        </div>
+    </main>
+
+</body>
+</html>

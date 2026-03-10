@@ -4,3 +4,16 @@ __pycache__/
 
 # Virtual environment
 venv/
+
+# Environment variables
+.env
+
+# Database config
+config.py
+
+node-v*
+*.dmg
+
+# OS files
+.DS_Store
+Thumbs.db
