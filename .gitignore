@@ -14,6 +14,9 @@ config.py
 node-v*
 *.dmg
 
+giftly.css
+giftly.html
+
 # OS files
 .DS_Store
 Thumbs.db
